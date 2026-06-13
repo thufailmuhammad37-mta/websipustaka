@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="flex justify-between items-center mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-slate-950">Koleksi Buku</h2>
+        <p class="text-xs text-slate-400 mt-1">Kelola seluruh daftar buku perpustakaan.</p>
+    </div>
+    <a href="{% url 'tambah_buku' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition flex items-center space-x-2 shadow-sm">
+        <i class="fa-solid fa-plus"></i>
+        <span>Tambah Buku</span>
+    </a>
+</div>
+
+<div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+    <table class="w-full text-left border-collapse">
+        <thead>
+            <tr class="bg-slate-50 border-b border-slate-100 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <th class="p-4">Judul / Pengarang</th>
+                <th class="p-4">Kategori</th>
+                <th class="p-4">Penerbit</th>
+                <th class="p-4">Stok</th>
+                <th class="p-4 text-center">Aksi</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+            {% for b in buku_list %}
+            <tr class="hover:bg-slate-50/50 transition">
+                <td class="p-4">
+                    <span class="font-semibold text-slate-900 block">{{ b.judul }}</span>
+                    <span class="text-xs text-slate-400">{{ b.pengarang }}</span>
+                </td>
+                <td class="p-4"> 
+                    {% if b.kategori == 'Novel' %}  
+                    <span class="px-2.5 py-1 rounded-md bg-orange-100 text-orange-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Pemrograman' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Desain' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Filosofi' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Kitabullah' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Tauhid' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Fiqh' %}
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Sejarah' %}
+                     <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Aksi' %}
+                     <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% elif b.kategori == 'Fantasi' %}
+                    <span class="px-2.5 py-1 rounded-md bg-green-100 text-green-600 text-xs font-medium">{{ b.kategori }}</span>
+                    {% endif %}
+                </td>
+                <td class="p-4">{{ b.penerbit }} ({{ b.tahun_terbit }})</td>
+                <td class="p-4 font-semibold {% if b.stok == 0 %} text-rose-600 {% else %} text-slate-900 {% endif %}">{{ b.stok }} pcs</td>
+                <td class="p-4 flex items-center justify-center space-x-2">
+                    <a href="{% url 'detail_buku' b.id %}" class="text-slate-500 hover:text-blue-600 p-2 rounded-lg hover:bg-blue-50 transition text-xs" title="Detail"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{% url 'edit_buku' b.id %}" class="text-slate-500 hover:text-amber-600 p-2 rounded-lg hover:bg-amber-50 transition text-xs" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{% url 'hapus_buku' b.id %}" class="text-slate-500 hover:text-rose-600 p-2 rounded-lg hover:bg-rose-50 transition text-xs" title="Hapus"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="p-8 text-center text-slate-400 text-xs">Belum ada data buku.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
