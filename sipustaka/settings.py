@@ -28,7 +28,7 @@ DEBUG = False   # kamu bisa ubah ke True dulu untuk testing
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'thufail.pythonanywhere.com',
+    'muhammadthufail.pythonanywhere.com',
     '*',                    # ← Tambahkan ini sementara untuk development
 ]
 
