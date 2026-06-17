@@ -27,7 +27,7 @@ DEBUG = False   # kamu bisa ubah ke True dulu untuk testing
 
 ALLOWED_HOSTS = [
 
-    'muhammadthufail.pythonanywhere.com'
+   'muhammadthufail.pythonanywhere.com'
                  # ← Tambahkan ini sementara untuk development
 ]
 
