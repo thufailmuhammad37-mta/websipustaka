@@ -26,10 +26,9 @@ SECRET_KEY = 'django-insecure-=*z&ex6oic&utau+h+yd7hsaw+pwt+@$@)7g$i^rqo^(^3)cbl
 DEBUG = False   # kamu bisa ubah ke True dulu untuk testing
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'muhammadthufail.pythonanywhere.com',
-    '*',                    # ← Tambahkan ini sementara untuk development
+
+    'muhammadthufail.pythonanywhere.com'
+                 # ← Tambahkan ini sementara untuk development
 ]
 
 
