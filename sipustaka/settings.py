@@ -23,10 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=*z&ex6oic&utau+h+yd7hsaw+pwt+@$@)7g$i^rqo^(^3)cbl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False   # kamu bisa ubah ke True dulu untuk testing
 
 ALLOWED_HOSTS = [
-    'thufail.pythonanywhere.com'
+    '127.0.0.1',
+    'localhost',
+    'thufail.pythonanywhere.com',
+    '*',                    # ← Tambahkan ini sementara untuk development
 ]
 
 
